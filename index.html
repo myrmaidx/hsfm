@@ -1,8 +1,33 @@
 <html>
     <head>
-        <title> geography </title>
+        <link rel="stylesheet" href="main.css" />
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+        //leaflet css link
+
+        <title> my first leaflet map </title>
     </head>
+
     <body> 
         <h1> first test </h1>
+
+        <div id="map"></div>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        // javascript leaflet
+        <script> 
+            // initalize the map
+            const map = L.map('map').SetView([51.9741, 5.6688], 15);
+        
+            //create baselayer - tiles
+            const backgroundMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
+            attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a>contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 19
+            }
+            );
+
+            backgroundMap.addTo(map);
+            
+        </script> 
+
     </body>
 </html>
