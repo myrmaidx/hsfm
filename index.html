@@ -1,8 +1,11 @@
+
 <html>
     <head>
         <link rel="stylesheet" href="main.css" />
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title> webcartografie Myrthe Koelemeij </title>
     </head>
@@ -10,8 +13,14 @@
     <body> 
         <h1> Welkom </h1>
 
-        <div id="map"></div>
-        <div id="rdnew"></div>
+        <div class="row">
+            <div class="column">
+                <div id="map"></div>
+            </div>
+            <div class="column">
+                <div id="rdnew"></div>
+            </div>
+        </div>
 
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"> </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-hash/0.2.1/leaflet-hash.js"></script>
@@ -64,6 +73,9 @@
                 [51.5152681, -0.1420078], 
                 ]]).addTo(map);
 
+                // Hash in URL (hoeft niet aan map worden gekoppeld want het gaat in de URL)
+                const hash = new L.Hash(map);
+
                 // dutch tiling scheme lol??
                 const RDnew = new L.Proj.CRS('EPSG:28992', '+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +units=m +towgs84=565.2369,50.0087,465.658,-0.406857330322398,0.350732676542563,-1.8703473836068,4.0812 +no_defs',
                 {
@@ -76,8 +88,8 @@
 
                 const rdnew= L.map('rdnew', {
                 crs: RDnew,
-                zoom: 12, //Zoom scale RD new
-                center: [51.9741, 5.6688] //webmercator coördinaten
+                zoom: 6, //Zoom scale RD new
+                center: [52.3507849, 5.2647016] //Coördinaten van Almere
                 });
 
                 // pdok
@@ -89,10 +101,78 @@
 
                 pdokachtergrondkaart.addTo(rdnew);
 
-              // Hash in URL
-                const hash = new L.Hash(map);
-                hash.addTo(map);
-        
+
+
+              // ADD a WMS layer to the map
+              const cbs = L.tileLayer.wms('https://geodata.nationaalgeoregister.nl/ahn3/wms', {
+                'layers': 'ahn3_5m_dtm',
+                'styles': 'ahn3:ahn3_5m_detail',
+                'srs': 'EPSG:28992',
+                'format': 'image/png',
+                'opacity': '0.5',
+                'transparent': true
+                }).addTo(rdnew);
+
+
+              //GeoJSON Coördinaten toevoegen om een polygoon te maken
+              
+              const myGeojson = {
+                "type": "FeatureCollection",
+                "features": [{
+                "type": "Feature",
+                "properties": {},
+                "geometry": {
+                "type": "Polygon",
+                "coordinates": [[[
+                    5.230436325073242,
+                    52.3701494343597
+                    ],
+                    [
+                    5.207176208496094,
+                    52.36517071668903
+                    ],
+                    [
+                    5.216875076293945,
+                    52.35437283281734
+                    ],
+                    [
+                    5.229063034057617,
+                    52.35720360124792
+                    ],  
+                    [
+                    5.236015319824219,
+                    52.350545765028656
+                    ],
+                    [
+                    5.246658325195312,
+                    52.35306223047324
+                    ],
+                    [
+                    5.230436325073242,
+                    52.3701494343597]]]}}]}
+                    L.geoJSON(myGeojson).addTo(rdnew);
+
+              //Maak een lege GeoJSON laag aan, eerst de opmaak.
+              const geojsonMarkerOptions = {
+                radius: 8,
+                fillColor: "#ff7800",
+                color: "#000",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.8};
+
+              const geojson = L.geoJson(null,{
+                pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, geojsonMarkerOptions);}})
+
+                geojson.addTo(rdnew);
+
+              //Je laadt de GeoJSON file in van een server. Kan gewoon een bestand uploaden naar Github en daarvandaan inladen zodat hij overal beschikbaar is.
+              fetch("https://raw.githubusercontent.com/myrmaidx/hsfm/master/campingalmere.geojson")
+                .then(response => response.json())
+                .then(data => {
+                geojson.addData(data);})
+                .catch( error => alert(error))
         </script> 
 
     </body>
