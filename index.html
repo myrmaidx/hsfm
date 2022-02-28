@@ -1,7 +1,7 @@
 
 <html>
     <head>
-        <link rel="stylesheet" href="main.css" />
+        <link rel="stylesheet" href="css/main.css" />
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
@@ -27,7 +27,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.5/proj4.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.js"></script>
 
-        <script> 
+        <script>
                 // initalize the map
                 const map = L.map('map').setView([51.51289135, -0.13994767], 15);
         
@@ -168,7 +168,7 @@
                 geojson.addTo(rdnew);
 
               //Je laadt de GeoJSON file in van een server. Kan gewoon een bestand uploaden naar Github en daarvandaan inladen zodat hij overal beschikbaar is.
-              fetch("https://raw.githubusercontent.com/myrmaidx/hsfm/master/campingalmere.geojson")
+              fetch("https://raw.githubusercontent.com/myrmaidx/hsfm/master/data/campingalmere.geojson")
                 .then(response => response.json())
                 .then(data => {
                 geojson.addData(data);})
