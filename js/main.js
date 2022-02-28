@@ -12,7 +12,7 @@ maxZoom: 19
 }
 );
 
-// add background map
+// add background to the leaflet map
 backgroundMap.addTo(map);
 
 // add markers
@@ -21,7 +21,7 @@ let waterstonesmarker = L.marker([51.50899445, -0.13587761]).addTo(map);
 let picadillymarker = L.marker([51.510091, -0.1346461]).addTo(map);
 let oxfordmarker = L.marker([51.5152681, -0.1420078]).addTo(map);        
 
-// add pop-ups with text
+// add pop-ups with text to the leaflet map
 let popup = "Hamleys is a popular toy shop in London";
 hamleysmarker.bindPopup(popup);
 let popup2 = "Waterstones is a bookstore with English origins that sell thousands of books in all categories";
@@ -31,14 +31,14 @@ picadillymarker.bindPopup(popup3);
 let popup4 = "Oxford Circus is ...";
 oxfordmarker.bindPopup(popup4); 
 
-// add circle
+// add circle to the leaflet map
 let circle =  L.circle([51.51289135, -0.13994767], 550, {
 color: 'blue',
 fillColor: 'rgb(0,0,255)',
 fillOpacity: 0.5
 }).addTo(map);
 
-// add polygon
+// add polygons to the leaflet map
 let polygon = L.polygon(
 [[
 [51.51289135, -0.13994767], 
@@ -47,11 +47,7 @@ let polygon = L.polygon(
 [51.5152681, -0.1420078], 
 ]]).addTo(map);
 
-// Hash in URL (hoeft niet aan map worden gekoppeld want het gaat in de URL)
-
-const hash = new L.Hash(map);
-
-// dutch tiling scheme 
+// dutch tiling scheme for rdnew map
 const RDnew = new L.Proj.CRS('EPSG:28992', '+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +units=m +towgs84=565.2369,50.0087,465.658,-0.406857330322398,0.350732676542563,-1.8703473836068,4.0812 +no_defs',
 {
 transformation: L.Transformation(-1, -1, 0, 0),
@@ -61,21 +57,21 @@ bounds: L.bounds([-285401.920, 903401.920], [595401.920, 22598.080])
 }
 );
 
-const rdnew= L.map('rdnew', {
+const RDNewMap= L.map('RDNewMap', {
 crs: RDnew,
 zoom: 6, //Zoom scale RD new
 center: [52.3507849, 5.2647016] //Coördinaten van Almere
 });
 
-// pdok
+// pdok kaart voor rdnew map
 const pdokachtergrondkaart = new L.TileLayer('https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/standaard/EPSG:28992/{z}/{x}/{y}.png', {
 minZoom: 0,
 maxZoom: 13,
 attribution: 'Kaartgegevens: © <a href="http://www.cbs.nl">CBS</a>, <a href="http://www.kadaster.nl">Kadaster</a>, <a href="http://openstreetmap.org">OpenStreetMap</a><span class="printhide">-auteurs (<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>).</span>'
 });
-pdokachtergrondkaart.addTo(rdnew);
+pdokachtergrondkaart.addTo(RDNewMap);
 
-// ADD a WMS layer to the map
+// ADD a WMS layer to the rdnew map
 const cbs = L.tileLayer.wms('https://geodata.nationaalgeoregister.nl/ahn3/wms', {
 'layers': 'ahn3_5m_dtm',
 'styles': 'ahn3:ahn3_5m_detail',
@@ -83,10 +79,10 @@ const cbs = L.tileLayer.wms('https://geodata.nationaalgeoregister.nl/ahn3/wms', 
 'format': 'image/png',
 'opacity': '0.5',
 'transparent': true
-}).addTo(rdnew);
+}).addTo(RDNewMap);
 
 
-//GeoJSON Coördinaten toevoegen om een polygoon te maken
+//GeoJSON Coördinaten toevoegen om een polygoon te maken voor rdnew map
                     
 const myGeojson = {
 "type": "FeatureCollection",
@@ -105,7 +101,7 @@ const myGeojson = {
 [5.236015319824219,52.350545765028656],
 [5.246658325195312,52.35306223047324],
 [5.230436325073242,52.3701494343597]]]}}]}
-L.geoJSON(myGeojson).addTo(rdnew);
+L.geoJSON(myGeojson).addTo(RDNewMap);
 
 //Maak een lege GeoJSON laag aan, eerst de opmaak.
 const geojsonMarkerOptions = {
@@ -118,7 +114,7 @@ fillOpacity: 0.8};
 const geojson = L.geoJson(null,{
 pointToLayer: function (feature, latlng) {
 return L.circleMarker(latlng, geojsonMarkerOptions);}})
-geojson.addTo(rdnew);
+geojson.addTo(RDNewMap);
 
 //Je laadt de GeoJSON file in van een server. Kan gewoon een bestand uploaden naar Github en daarvandaan inladen zodat hij overal beschikbaar is.
 fetch("https://raw.githubusercontent.com/myrmaidx/hsfm/master/data/campingalmere.geojson")
