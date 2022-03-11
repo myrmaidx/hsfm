@@ -16,15 +16,17 @@
         <script src="https://cdn.jsdelivr.net/npm/terraformer"></script>
         <script src="https://unpkg.com/@terraformer/wkt"></script>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style> 
+            .containerAllScreen {
+            background-image: url("img/jordan-heath-4z_SYrG5mgA-unsplash.jpg");} 
+        </style>
 
         <title> portfolio Myrthe Koelemeij </title>
     </head>
 
     <body> 
-        <div class="header">
-            <h1> Welkom bij mijn portfolio/website </h1>
 
+            <div class="containerAllScreen">
             <ul class="nav">
 			    <a class="fotolink" href="https://myrmaidx.github.io/site-hwud/index.html">
 				<img class="fotolink" src="images/deltaresrood.gif" alt="Deltares Deltas"> 
@@ -34,43 +36,15 @@
                     <li> <a class="active" href="index.html"> HOME </a> </li>
                     <li> <a href="about.html"> ABOUT </a> </li>
                     <li> <a href="contact.html"> CONTACT </a> </li>
-                    <li> <a href="deltaresproject.html"> PROJECT </a></li>
+                    <li> <a href="project.html"> PROJECT </a></li>
                 </div>
             </ul>
+
+            <section class="main">
+				<div class="main_header">
+					<h1> PROJECT DELTARES DELTAS </h1>
+				</div>
+            </section>
         </div>
-
-        <div class="container1">
-                <div id="map"></div>
-        </div>
-        
-
-            <div class="container2">
-                <div id="RDNewMap"></div>
-
-                <button class="Button" id="
-                zoomIn" onclick="zoom()"> Inzoomen 
-                 </button>
-
-                <h1 id="interactiveTitle"> </h1>
-
-            </div>
-
-            <div class="container3">
-                <div id="cesiumContainer"></div>
-            </div>
-
-            <div class="container4">
-                <div id="Map"></div>
-            </div>
-
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"> </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-hash/0.2.1/leaflet-hash.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.5/proj4.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.js"></script>
-
-        <script src="https://cesium.com/downloads/cesiumjs/releases/1.91/Build/Cesium/Cesium.js"></script>
-
-        <script src="js/main.js"> </script>
-
-    </body>
-</html>
+        </body>
+        </html>
