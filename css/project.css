@@ -114,7 +114,6 @@ body, html {
               .container4 {
               grid-column: 2 / span 3;
               grid-row: 8 / span 1;
-              background-color: black;
               }
   
               /* webmap dimensions */
