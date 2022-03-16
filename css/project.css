@@ -3,48 +3,40 @@
 body {
     display: grid;
     grid-template-columns: auto 40% 5% 40% auto;
-    grid-template-rows: 150px 50px 500px 50px 50px 500px 250px;
-    font-family: Arial, Helvetica, sans-serif;
+    grid-template-rows: auto 50px 500px 50px 50px 500px 50px 500px 50px;
     margin: 0px;
-    }
+  }
+
+body, html {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'montserrat';
+    background-color: #ECEBE4;
+  }
 
     /* header */
     .header { 
-        background-color: black;
+        background-color: #64849d;
         color: white;
         text-align: center;
         grid-column: 1 / span 5;
         grid-row: 1 / span 1;
       }
-  
-      .h1 {
-      padding: 10px;
-      }
-  
-        /* button */
-  
-        .button { 
-          border: none;
-          background-color: black;
-          color: white;
-          padding: 15px; 
-  
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          }
-  
-          .button:hover { 
-          cursor: pointer;
-          }
+
+        /* logo */
+        .fotolink {
+          margin-left: 20px;
+          max-height: 60px;
+          max-width: 60px;
+          float: left;
+        }
 
           /* start nav */
         ul {
             position: relative;
-              display: block;
+            display: block;
             padding-right: 40px;
-            padding-top: 20px;
-            z-index: 999;
             }
   
             /* houdt de navigation vast van left to right */
@@ -69,21 +61,39 @@ body {
               font-size: 20px;
               color: #fff;
   
-              padding: 20px 20px;
+              padding-top: 20px;
+              padding-right: 20px;
+              padding-left: 20px;
               }
   
               .navigation a:hover{
-                color: #64849d;
+                color: #323031;
                   text-decoration: none;
               }
   
               /* als de persoon zich bevindt op een vd pagina's */
               .navigation a.active {
-                  color: #64849d;
+                  color: #323031;
                   text-decoration: none;
               }
   
               /* end navigation */
+
+              /* button */
+              .button { 
+                  border: none;
+                  background-color: black;
+                  color: white;
+                  padding: 15px; 
+          
+                  display: block;
+                  margin-left: auto;
+                  margin-right: auto;
+                }
+  
+                .button:hover { 
+                  cursor: pointer;
+                }
   
                /* hieronder begin van containers */
               .container1 {
@@ -97,13 +107,13 @@ body {
               }
   
               .container3 {
-              grid-column: 2 / span 1;
-            grid-row: 6 / span 1;
+              grid-column: 2 / span 3;
+              grid-row: 6 / span 1;
               }
   
               .container4 {
-              grid-column: 4 / span 1;
-              grid-row: 6 / span 1;
+              grid-column: 2 / span 3;
+              grid-row: 8 / span 1;
               background-color: black;
               }
   
