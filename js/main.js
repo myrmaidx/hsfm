@@ -124,5 +124,46 @@
         titel.style.color = 'red'
         titel.append(woonplaatsnaam)
         })
+    }
 
-        }
+    // array shit idk
+
+        const arrayVanPlaatsnamen = ['Amsterdam', 'Soesterberg', 'Almere', 'Utrecht', 'Heerhugowaard'];
+        for (let index = 0; index < arrayVanPlaatsnamen.length; index++) {
+            const woonplaats = arrayVanPlaatsnamen[index];
+
+        const node = document.createElement("button");
+
+        node.className = "button";
+        node.id = woonplaats ;
+        const textnode = document.createTextNode(woonplaats);
+        node.appendChild(textnode);
+
+        document.getElementById("container2").appendChild(node);
+
+        node.addEventListener('click', function (){
+            console.log(node.id)
+
+            
+            fetch('https://geodata.nationaalgeoregister.nl/locatieserver/free?bq=type:woonplaats&q=' + node.id)
+            .then(response => response.json())
+            .then(data =>{
+                let id = data.response.docs[0].id
+
+            // data ophalen
+                fetch('https://geodata.nationaalgeoregister.nl/locatieserver/lookup?fl=*&id=' + id)
+                .then(response => response.json())
+                .then(data => {
+                const wkt = data.response.docs[0].geometrie_ll
+                
+            // wkt omzetten naar geojson
+                const geojson = Terraformer.wktToGeoJSON(wkt)
+                console.log(geojson)
+                geoJsonlayerHHW.addData(geojson);
+                })
+            
+            
+            })
+
+
+        })}
