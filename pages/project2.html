@@ -2,10 +2,10 @@
     <head>
 
         <meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, inital scale=1.0">
+		<meta name="viewport" content="width=device-width, initial scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <link rel="stylesheet" href="../css/project.css" />
+        <link rel="stylesheet" href="../css/project2.css" />
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
@@ -33,27 +33,14 @@
             </ul>
         </div>
 
-        <div class="container1">
-            <div id="map"></div>
-        </div>
-    
-
-        <div class="container2" id="container2">
-            <div id="RDNewMap"></div>
-
-            <button class="button" id="zoomIn" onclick="zoom()"> Inzoomen 
-             </button>
-
-            <h1 id="interactiveTitle"> </h1>
-
+        <div class="container3">
+            <div id="cesiumContainer"></div>
         </div>
 
-        <div class="button2con">
-        <a href="../pages/project2.html">
-            <button class="button2"> Click me! </button>
-            </a> 
+        <div class="container4">
+            <iframe src="https://kepler.gl/#/demo?mapUrl=https://raw.githubusercontent.com/myrmaidx/hsfm/main/data/kepler.gl.json" style="width: 100%; height: 100%; " frameBorder="0"> </iframe>
         </div>
-        
+
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-hash/0.2.1/leaflet-hash.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.5/proj4.js"></script>
