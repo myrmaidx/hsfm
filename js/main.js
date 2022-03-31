@@ -78,7 +78,7 @@
         // END RDNEWMAP
 
         
-        // BUTTON, CORRELATION WITH RDNEWMAP NO2
+        // BUTTON, CORRELATION WITH RDNEWMAP
 
         const geoJsonlayerHHW = L.geoJSON().addTo(RDNewMap);
 
@@ -91,6 +91,7 @@
         .then(response => response.json())
         .then(data => {
             const wkt = data.response.docs[0].geometrie_ll
+
             // wkt omzetten naar geojson
             const geojson = Terraformer.wktToGeoJSON(wkt)
             console.log(geojson)
@@ -102,12 +103,12 @@
 
         // interactive title
         const titel = document.getElementById('interactiveTitle');
-        titel.style.color = 'red'
+        titel.style.color = 'black'
         titel.append(woonplaatsnaam)
         })
     }
 
-    // array shit idk
+    // array & loops
 
         const arrayVanPlaatsnamen = ['Amsterdam', 'Soesterberg', 'Almere', 'Utrecht', 'Heerhugowaard'];
         for (let index = 0; index < arrayVanPlaatsnamen.length; index++) {
@@ -137,12 +138,12 @@
                 .then(data => {
                 const wkt = data.response.docs[0].geometrie_ll
                 
-            // wkt omzetten naar geojson
+            // wkt omzetten naar geojson + inzoomen naar de steden
                 const geojson = Terraformer.wktToGeoJSON(wkt)
-                console.log(geojson)
+                var center = Terraformer.wktToGeoJSON(data.response.docs[0].centroide_ll)
                 geoJsonlayerHHW.addData(geojson);
+                RDNewMap.setView(center.coordinates.reverse(), 10)
                 })
-            
             
             })
 

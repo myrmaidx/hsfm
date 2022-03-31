@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, inital scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+        <link rel="stylesheet" href="../css/main.css" />
         <link rel="stylesheet" href="../css/project.css" />
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -33,35 +34,49 @@
             </ul>
         </div>
 
-        <div class="container1">
+        <div class="buttonClickCon">
+            <a href="../pages/project2.html">
+                <button class="buttonClick"> 2nd project page! </button>
+                </a> 
+            </div>
+
+        <!-- container 1 (Leaflet Map) met bijbehorende tekst-->
+        <div class="container1"> 
             <div id="map"></div>
         </div>
     
+        <a class="tekstMap"> dit is een stuk tekst </a>
 
+        <!-- container 2 (RDNewMap) met bijbehorende tekst-->
         <div class="container2" id="container2">
             <div id="RDNewMap"></div>
-
-            <button class="button" id="zoomIn" onclick="zoom()"> Inzoomen 
-             </button>
-
-            <h1 id="interactiveTitle"> </h1>
-
         </div>
 
-        <div class="button2con">
-        <a href="../pages/project2.html">
-            <button class="button2"> Click me! </button>
-            </a> 
+        <a class="tekstRD"> dit is een stuk tekst </a>
+
+        <!-- container 3 (x) met bijbehorende tekst-->
+        <div class="container3">
+            <div id="dataWrapper"></div>
         </div>
-        
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"> </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-hash/0.2.1/leaflet-hash.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.5/proj4.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.js"></script>
 
-    <script src="https://cesium.com/downloads/cesiumjs/releases/1.91/Build/Cesium/Cesium.js"></script>
+        <a class="tekstData"> dit is een stuk tekst </a> 
 
-    <script src="../js/main.js"> </script>
+        <!-- container 4 (x) met bijbehorende tekst -->
+        <div class="container4">
+            <div id="dataVisualisatie"></div>
+        </div>
 
-</body>
+        <a class="tekstVisualisatie"> dit is een stuk tekst </a>
+      
+        <!-- dit is javascript libraries-->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"> </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-hash/0.2.1/leaflet-hash.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.5/proj4.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.js"></script>
+
+        <script src="https://cesium.com/downloads/cesiumjs/releases/1.91/Build/Cesium/Cesium.js"></script>
+
+        <script src="../js/main.js"> </script>
+
+    </body>
 </html>

@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+        <link rel="stylesheet" href="../css/main.css" />
         <link rel="stylesheet" href="../css/project2.css" />
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -28,27 +29,35 @@
                     <li> <a href="../index.html"> HOME </a> </li>
                     <li> <a href="../pages/about.html"> ABOUT </a> </li>
                     <li> <a href="../pages/contact.html"> CONTACT </a> </li>
-                    <li> <a class="active" href="../pages/project.html"> PROJECT </a></li>
+                    <li> <a href="../pages/project.html"> PROJECT </a></li>
+                    <li> <a class="active" href="../pages/project2.html"> SECOND PROJECT</a></li>
                 </div>
             </ul>
         </div>
 
+        <!-- container 3 (Cesium) met bijbehorende tekst-->
         <div class="container3">
             <div id="cesiumContainer"></div>
         </div>
 
+        <a class="tekstCesium"> dit is een stuk tekst </a>
+
+        <!-- container 4 (Kepler) met bijbehorende tekst-->
         <div class="container4">
             <iframe src="https://kepler.gl/#/demo?mapUrl=https://raw.githubusercontent.com/myrmaidx/hsfm/main/data/kepler.gl.json" style="width: 100%; height: 100%; " frameBorder="0"> </iframe>
         </div>
 
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"> </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-hash/0.2.1/leaflet-hash.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.5/proj4.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.js"></script>
+        <a class="tekstKepler"> dit is een stuk tekst </a>
 
-    <script src="https://cesium.com/downloads/cesiumjs/releases/1.91/Build/Cesium/Cesium.js"></script>
+        <!-- javascript libraries -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"> </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-hash/0.2.1/leaflet-hash.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.5/proj4.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.js"></script>
 
-    <script src="../js/project.js"> </script>
+        <script src="https://cesium.com/downloads/cesiumjs/releases/1.91/Build/Cesium/Cesium.js"></script>
 
-</body>
+        <script src="../js/project.js"> </script>
+
+    </body>
 </html>

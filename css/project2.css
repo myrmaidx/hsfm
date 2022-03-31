@@ -3,15 +3,9 @@
 body {
     display: grid;
     grid-template-columns: auto 40% 5% 40% auto;
-    grid-template-rows: auto 50px 500px 50px 500px auto;
+    grid-template-rows: auto 50px 500px 250px 500px 250px auto;
     margin: 0px;
-  }
 
-body, html {
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;
-    font-family: 'montserrat';
     background-color: #ECEBE4;
   }
 
@@ -28,69 +22,27 @@ body, html {
   color: white;
 }
 
-/* logo */
-.fotolink {
-  margin-left: 20px;
-  max-height: 60px;
-  max-width: 60px;
-  float: left;
-}
-
-/* start nav */
-ul {
-position: relative;
-display: block;
-padding-right: 40px;
-  }
-  
-/* houdt de navigation vast van left to right */
-   .nav li { 
-    display:inline;
-}
-  
-/* houdt navigation vast op plek */
-.nav a {
-display:inline-block;
-}
-        
-/* houdt de navigation rechts vast */
-.navigation {
-float: right; 
-}
-  
-/* opmaak van de "knopjes" */
-.navigation a{
-text-decoration: none;
-font-weight: 500;
-font-size: 20px;
-color: #fff;
-  
-padding-top: 20px;
-padding-right: 20px;
-padding-left: 20px; 
-}
-  
-.navigation a:hover{
-color: #323031;
-text-decoration: none;
-cursor: pointer;
-}
-  
-/* als de persoon zich bevindt op een vd pagina's */
-.navigation a.active {
-color: #323031;
-text-decoration: none;
-}
-  
-/* end navigation */
-
 /*begin container*/
 .container3 {
     grid-column: 2 / span 3;
     grid-row: 3 / span 1;
     }
-      
-    .container4 {
-        grid-column: 2 / span 3;
-        grid-row: 5 / span 1;
+
+    a.tekstCesium {
+    grid-column: 2 / span 3;
+    grid-row: 4 / span 1;
+
+    margin-top: 25px;
     }
+      
+.container4 {
+grid-column: 2 / span 3;
+grid-row: 5 / span 1;
+}
+
+a.tekstKepler {
+grid-column: 2 / span 3;
+grid-row: 6 / span 1;
+
+margin-top: 25px;
+}
