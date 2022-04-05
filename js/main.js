@@ -91,15 +91,48 @@
         
                 function toggleWMS() {
                     if(!toggle) {
-                      map.removeLayer(cbs); 
+                      RDNewMap.removeLayer(cbs); 
                     }
                       else {
-                          map.addLayer(cbs);
+                      RDNewMap.addLayer(cbs);
                       }
                       toggle = !toggle;
                     }
 
-                    
+                // add eigen data
+                const geojsonMarkerOptions = {
+                    radius: 5,
+                    fillColor: "#FFFFFF",
+                    color: "#000",
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                };
+                
+                const geojsonRD = L.geoJson(null,{
+                    pointToLayer: function (feature, latlng) {
+                    return L.circleMarker(latlng, geojsonMarkerOptions);}})
+            
+                    geojsonRD.addTo(RDNewMap);
+            
+                    fetch("https://raw.githubusercontent.com/myrmaidx/hsfm/main/data/campingalmere.geojson")
+                    .then(response => response.json())
+                    .then(data => {
+                    geojsonRD.addData(data);})
+                    .catch( error => alert(error))
+            
+                    //GeoJson uitzetten
+                    window.toggle = false;{
+                    }
+            
+                    function togglePoints() {
+                        if(!toggle) {
+                          RDNewMap.removeLayer(geojsonRD);
+                        } else {
+                          RDNewMap.addLayer(geojsonRD);
+                        }
+                        toggle = !toggle;
+                      }    
 
         // END RDNEWMAP
 
