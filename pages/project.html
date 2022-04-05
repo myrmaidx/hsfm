@@ -15,6 +15,9 @@
         <script src="https://cdn.jsdelivr.net/npm/terraformer"></script>
         <script src="https://unpkg.com/@terraformer/wkt"></script>
 
+        <script src='https://unpkg.com/maplibre-gl@2.1.7/dist/maplibre-gl.js'></script>
+        <link href='https://unpkg.com/maplibre-gl@2.1.7/dist/maplibre-gl.css' rel='stylesheet' />
+
     </head>
 
     <body> 
@@ -27,9 +30,8 @@
 	
 			    <div class="navigation">
                     <li> <a href="../index.html"> HOME </a> </li>
-                    <li> <a href="../pages/about.html"> ABOUT </a> </li>
                     <li> <a href="../pages/contact.html"> CONTACT </a> </li>
-                    <li> <a class="active" href="../pages/project.html"> PROJECT </a></li>
+                    <li> <a class="active" href="../pages/project.html"> PROJECTS </a></li>
                 </div>
             </ul>
         </div>
@@ -51,16 +53,26 @@
         <div class="container2" id="container2">
             <div id="RDNewMap"></div>
 
-            <button onclick="toggleWMS();" class="button"> WMS </button>
-            <button onclick="togglePoints();" class="button">Campings </button>
+            <button onclick="toggleWMS();" class="button" id="buttonToggle"> WMS </button>
+            <button onclick="togglePoints();" class="button" id="buttonToggle"> Campings </button>
+            <button onclick="toggleServer();" class="button" id="buttonToggle"> Geoserver </button>
             
         </div>
 
         <a class="tekstRD"> dit is een stuk tekst </a>
 
-        <!-- container 3 (flourish) met bijbehorende tekst-->
+        <!-- container 3 (MapLibre) met bijbehorende tekst -->
 
-        <div class="container3"> 
+        <div class="container3">
+            <div id="mapLibre"> </div>
+
+        </div>
+
+        <a class="tekstLibre">dit is een stuk tekst </a>
+
+        <!-- container 4 (flourish) met bijbehorende tekst-->
+
+        <div class="container4"> 
             <div id="DataFlourish"></div>
         
         <div class="flourish-embed flourish-chart" data-src="visualisation/9272671"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
@@ -68,8 +80,8 @@
 
         <a class="tekstData"> dit is een stuk tekst </a> 
 
-        <!-- container 4 (x) met bijbehorende tekst -->
-        <div class="container4">
+        <!-- container 5 (chart) met bijbehorende tekst -->
+        <div class="container5">
             <canvas id="myChart"> </canvas>
         </div>
 
