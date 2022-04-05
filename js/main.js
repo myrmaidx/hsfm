@@ -75,9 +75,34 @@
         });
         pdokachtergrondkaart.addTo(RDNewMap);
 
+                // ADD a WMS layer
+                const cbs = L.tileLayer.wms('https://geodata.nationaalgeoregister.nl/ahn3/wms', {
+                    'layers': 'ahn3_5m_dtm',
+                    'styles': 'ahn3:ahn3_5m_detail',
+                    'srs': 'EPSG:28992',
+                    'format': 'image/png',
+                    'opacity': '0.5',
+                    'transparent': true
+                }).addTo(RDNewMap);
+                
+                 // Lagen aan en uit zetten
+                 window.toggle = false; {
+                }
+        
+                function toggleWMS() {
+                    if(!toggle) {
+                      map.removeLayer(cbs); 
+                    }
+                      else {
+                          map.addLayer(cbs);
+                      }
+                      toggle = !toggle;
+                    }
+
+                    
+
         // END RDNEWMAP
 
-        
         // BUTTON, CORRELATION WITH RDNEWMAP
 
         const geoJsonlayerHHW = L.geoJSON().addTo(RDNewMap);
@@ -108,7 +133,7 @@
         })
     }
 
-    // array & loops
+    // array & loops bij rdnewmap
 
         const arrayVanPlaatsnamen = ['Amsterdam', 'Soesterberg', 'Almere', 'Utrecht', 'Heerhugowaard'];
         for (let index = 0; index < arrayVanPlaatsnamen.length; index++) {
