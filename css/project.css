@@ -75,6 +75,9 @@ align-items: center;
   .tekstData {
     grid-column: 2 / span 1;
     grid-row: 9 / span 1;
+
+    align-self: center;
+    align-items: center;
   }
 
 /* container 5 aka chart.js */ 
@@ -89,7 +92,10 @@ align-items: center;
   /* tekst container 5 */
   a.tekstVisualisatie {
     grid-column: 4 / span 1;
-    grid-row: 11 / span 1
+    grid-row: 11 / span 1;
+
+    align-self: center;
+    align-items: center;
   }
 
 /* button */
